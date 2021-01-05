@@ -1,0 +1,9 @@
+<p>people works!</p>
+
+<div *ngIf="peopleFacade.allPeople$ | async as people">
+    {{people | json}}
+<ul>
+    <li *ngFor="let person of people">
+        {{person.id}}
+    </li>
+</ul>
