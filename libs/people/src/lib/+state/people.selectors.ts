@@ -5,40 +5,40 @@ import {
   PeoplePartialState,
   peopleAdapter,
 } from './people.reducer';
-
 // Lookup the 'People' feature state managed by NgRx
 export const getPeopleState = createFeatureSelector<PeoplePartialState, State>(
-  PEOPLE_FEATURE_KEY
+    PEOPLE_FEATURE_KEY
 );
-
 const { selectAll, selectEntities } = peopleAdapter.getSelectors();
-
 export const getPeopleLoaded = createSelector(
-  getPeopleState,
-  (state: State) => state.loaded
+    getPeopleState,
+    (state: State) => state.loaded
 );
-
 export const getPeopleError = createSelector(
-  getPeopleState,
-  (state: State) => state.error
+    getPeopleState,
+    (state: State) => state.error
 );
-
-export const getAllPeople = createSelector(getPeopleState, (state: State) =>
-  selectAll(state)
+export const getAll = createSelector(getPeopleState, (state: State) =>
+    selectAll(state)
 );
-
+export const getAllPeople = createSelector(
+    getAll,
+    state => state[0].results
+);
+export const getCount = createSelector(
+    getAll,
+    state => state[0].count
+);
 export const getPeopleEntities = createSelector(
-  getPeopleState,
-  (state: State) => selectEntities(state)
+    getPeopleState,
+    (state: State) => selectEntities(state)
 );
-
 export const getSelectedId = createSelector(
-  getPeopleState,
-  (state: State) => state.selectedId
+    getPeopleState,
+    (state: State) => state.selectedId
 );
-
 export const getSelected = createSelector(
-  getPeopleEntities,
-  getSelectedId,
-  (entities, selectedId) => selectedId && entities[selectedId]
+    getPeopleEntities,
+    getSelectedId,
+    (entities, selectedId) => selectedId && entities[selectedId]
 );

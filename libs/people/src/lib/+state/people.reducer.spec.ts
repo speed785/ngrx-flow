@@ -22,7 +22,7 @@ describe('People Reducer', () => {
       const result: State = reducer(initialState, action);
 
       expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
+      expect(result.ids.length).toBe(1);
     });
   });
 

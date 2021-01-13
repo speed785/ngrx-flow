@@ -17,7 +17,10 @@
     "paths": {
       "@ngrx-flow/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@ngrx-flow/people": ["libs/people/src/index.ts"],
-      "@ngrx-flow/reducers": ["libs/reducers/src/index.ts"]
+      "@ngrx-flow/reducers": ["libs/reducers/src/index.ts"],
+      "@ngrx-flow/shared/services": ["libs/shared/services/src/index.ts"],
+      "@ngrx-flow/planets": ["libs/planets/src/index.ts"],
+      "@ngrx-flow/starships": ["libs/starships/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

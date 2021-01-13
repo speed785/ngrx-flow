@@ -1,25 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PeopleComponent } from './people.component';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+import { PeopleFacade } from '@ngrx-flow/people';
 
 describe('PeopleComponent', () => {
-  let component: PeopleComponent;
-  let fixture: ComponentFixture<PeopleComponent>;
+  let spectator: Spectator<PeopleComponent>;
+  const createComponent = createComponentFactory({
+    component: PeopleComponent,
+    mocks: [PeopleFacade],
+    shallow: true
+  })
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PeopleComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach(() => spectator = createComponent())
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PeopleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('exists', () => {
+    expect(spectator.component).toBeDefined();
   });
 });

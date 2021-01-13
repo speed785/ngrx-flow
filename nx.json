@@ -18,7 +18,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
@@ -28,7 +34,9 @@
     },
     "nf-e2e": {
       "tags": [],
-      "implicitDependencies": ["nf"]
+      "implicitDependencies": [
+        "nf"
+      ]
     },
     "api": {
       "tags": []
@@ -40,6 +48,15 @@
       "tags": []
     },
     "reducers": {
+      "tags": []
+    },
+    "shared-services": {
+      "tags": []
+    },
+    "planets": {
+      "tags": []
+    },
+    "starships": {
       "tags": []
     }
   }

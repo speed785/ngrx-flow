@@ -1,3 +1,28 @@
-<!--Observable-->
-<div>Message: {{ hello$ | async | json }}</div>
-<router-outlet></router-outlet>
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="logo"></div>
+        <ul nz-menu nzTheme="dark" nzMode="inline">
+            <li nz-submenu nzTitle="Star Wars" nzIcon="user">
+                <ul>
+                    <li nz-menu-item [routerLink]="['people']">Characters</li>
+                    <li nz-menu-item [routerLink]="['planets']">Planets</li>
+                    <li nz-menu-item [routerLink]="['starships']">Starships</li>
+                </ul>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+        </nz-header>
+        <nz-content>
+            <nz-breadcrumb>
+                <nz-breadcrumb-item>Data</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+    </nz-layout>
+</nz-layout>

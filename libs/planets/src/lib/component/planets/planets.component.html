@@ -1,0 +1,41 @@
+<div *ngIf='planetsFacade.loaded$ | async'>
+    <h4 *ngIf='planetsFacade.count$ | async as count'>Count: {{count}}</h4>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }' *ngIf='planetsFacade.allPlanets$ | async as planets'>
+        <div nz-col class='gutter-row' [nzSpan]='6' *ngFor='let worlds of planets'>
+            <nz-card [nzTitle]='worlds.name'
+                     [nzExtra]='extraTemplate'>
+                <h4>Attributes</h4>
+                <ul>
+                    <li>Planet Name: {{worlds.name}}</li>
+                    <li>Rotation Period: {{worlds.rotation_period}}</li>
+                    <li>Orbital Period: {{worlds.orbital_period}}</li>
+                    <li>Diameter: {{worlds.diameter}}</li>
+                    <li>Climate: {{worlds.climate}}</li>
+                    <li>Gravity: {{worlds.gravity}}</li>
+                    <li>Terrain: {{worlds.terrain}}</li>
+                    <li>Surface_water: {{worlds.surface_water}}</li>
+                    <li>Population: {{worlds.population}}</li>
+                    <li>Residents:
+                        <ul>
+                            <li *ngFor='let film of worlds.residents'>
+                                <div>Open</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nz-card>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf='planetsFacade.loaded$ | async; else skeleton'>
+</ng-container>
+<ng-template #skeleton>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }'>
+        <nz-card nz-col class='gutter-row' [nzSpan]='6' nzTitle='Loading...'>
+            <nz-skeleton [nzActive]='true'></nz-skeleton>
+        </nz-card>
+    </div>
+</ng-template>
+<ng-template #extraTemplate>
+    <a>More</a>
+</ng-template>

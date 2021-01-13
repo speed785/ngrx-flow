@@ -1,43 +1,46 @@
-import { TestBed, async } from '@angular/core/testing';
-
 import { Observable } from 'rxjs';
-
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
-
-import { NxModule, DataPersistence } from '@nrwl/angular';
+import { PeopleEffects } from './people.effects';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
+import { Action } from '@ngrx/store';
+import { SwapiService } from '@ngrx-flow/shared/services';
 import { hot } from '@nrwl/angular/testing';
 
-import { PeopleEffects } from './people.effects';
-import * as PeopleActions from './people.actions';
-
 describe('PeopleEffects', () => {
-  let actions: Observable<any>;
-  let effects: PeopleEffects;
+  let effects: SpectatorService<PeopleEffects>;
+  let actions$: Observable<Action>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [NxModule.forRoot()],
-      providers: [
-        PeopleEffects,
-        DataPersistence,
-        provideMockActions(() => actions),
-        provideMockStore(),
-      ],
-    });
+  const createService = createServiceFactory({
+    service: PeopleEffects,
+    imports: [HttpClientTestingModule],
+    providers: [
 
-    effects = TestBed.get(PeopleEffects);
+      provideMockActions(() => actions$),
+      provideMockStore({
+        selectors: []
+      })
+    ],
+    mocks: [SwapiService]
   });
 
-  describe('init$', () => {
-    it('should work', () => {
-      actions = hot('-a-|', { a: PeopleActions.init() });
+  beforeEach(() => effects = createService())
 
-      const expected = hot('-a-|', {
-        a: PeopleActions.loadPeopleSuccess({ people: [] }),
-      });
-
-      expect(effects.init$).toBeObservable(expected);
-    });
+  it('exists', () => {
+    expect(effects.service).toBeDefined();
   });
+
+  it('should', () => {
+
+    actions$ = hot('-a--', {
+      a: { type: '[Customers Page] Search Customers', name: 'Bob' },
+    });
+
+    // there is no output, because Bob is already in the Store state
+    const expected = hot('-');
+
+    expect(effects.service.init$).toBeObservable(expected);
+
+  })
 });

@@ -4,6 +4,6 @@ import { Message } from '@ngrx-flow/api-interfaces';
 @Injectable()
 export class AppService {
   getData(): Message {
-    return { message: 'Welcome James!' };
+    return { message: 'Welcome to api!' };
   }
 }

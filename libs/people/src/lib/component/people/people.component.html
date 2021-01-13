@@ -1,9 +1,37 @@
-<p>people works!</p>
-
-<div *ngIf="peopleFacade.allPeople$ | async as people">
-    {{people | json}}
-<ul>
-    <li *ngFor="let person of people">
-        {{person.id}}
-    </li>
-</ul>
+<div *ngIf='peopleFacade.loaded$ | async'>
+    <h4 *ngIf='peopleFacade.count$ | async as count'>Count: {{count}}</h4>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }' *ngIf='peopleFacade.allPeople$ | async as people'>
+        <div nz-col class='gutter-row' [nzSpan]='6' *ngFor='let person of people'>
+            <nz-card [nzTitle]='person.name'
+                     [nzExtra]='extraTemplate'>
+                <h4>Attributes</h4>
+                <ul>
+                    <li>Birth Year: {{person.birth_year}}</li>
+                    <li>Hair Color: {{person.hair_color}}</li>
+                    <li>Skin Color: {{person.skin_color}}</li>
+                    <li data-testId="test-eye-color">Eye Color: {{person.eye_color}}</li>
+                    <li>Gender: {{person.gender}}</li>
+                    <li>Films:
+                        <ul>
+                            <li *ngFor='let film of person.films'>
+                                <div>Open</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nz-card>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf='peopleFacade.loaded$ | async; else skeleton'>
+</ng-container>
+<ng-template #skeleton>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }'>
+        <nz-card nz-col class='gutter-row' [nzSpan]='6' nzTitle='Loading...'>
+            <nz-skeleton [nzActive]='true'></nz-skeleton>
+        </nz-card>
+    </div>
+</ng-template>
+<ng-template #extraTemplate>
+    <a>More</a>
+</ng-template>

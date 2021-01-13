@@ -182,7 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppService = class AppService {
     getData() {
-        return { message: 'Welcome James!' };
+        return { message: 'Welcome to api!' };
     }
 };
 AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -269,7 +269,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/James/Desktop/GitHub/ngrx-flow/apps/api/src/main.ts */"./apps/api/src/main.ts");
+module.exports = __webpack_require__(/*! /Users/Development/ngrx-flow/apps/api/src/main.ts */"./apps/api/src/main.ts");
 
 
 /***/ }),

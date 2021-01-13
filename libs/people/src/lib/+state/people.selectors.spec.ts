@@ -5,28 +5,33 @@ import * as PeopleSelectors from './people.selectors';
 describe('People Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getPeopleId = (it) => it['id'];
-  const createPeopleEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as PeopleEntity);
+  const createPeopleEntity = (
+      id: string,
+      count = 0,
+      previous = '',
+      next = '',
+      results = []
+  ) =>
+      ({
+        id,
+        count,
+        previous,
+        next,
+        results
+      } as PeopleEntity);
 
   let state;
 
   beforeEach(() => {
     state = {
-      people: peopleAdapter.setAll(
-        [
-          createPeopleEntity('PRODUCT-AAA'),
-          createPeopleEntity('PRODUCT-BBB'),
-          createPeopleEntity('PRODUCT-CCC'),
-        ],
-        {
-          ...initialState,
-          selectedId: 'PRODUCT-BBB',
-          error: ERROR_MSG,
-          loaded: true,
-        }
+      people: peopleAdapter.setOne(
+          createPeopleEntity('foo', 3, 'bar', 'baz', []),
+          {
+            ...initialState,
+            selectedId: 'foo',
+            error: ERROR_MSG,
+            loaded: true,
+          }
       ),
     };
   });
@@ -34,17 +39,17 @@ describe('People Selectors', () => {
   describe('People Selectors', () => {
     it('getAllPeople() should return the list of People', () => {
       const results = PeopleSelectors.getAllPeople(state);
-      const selId = getPeopleId(results[1]);
+      const selId = getPeopleId(results);
 
-      expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(results.length).toBe(0);
+      expect(selId).toBeUndefined();
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = PeopleSelectors.getSelected(state);
       const selId = getPeopleId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe('foo');
     });
 
     it("getPeopleLoaded() should return the current 'loaded' status", () => {
