@@ -22,8 +22,16 @@ export interface Person {
   gender: string;
   name: string;
   homeworld: string[];
+  filmtest: movie[];
 }
 
+export interface movie {
+
+  id: string | number;
+
+  title: string;
+
+}
 // birth_year: "19BBY"
 // created: "2014-12-09T13:50:51.644000Z"
 // edited: "2014-12-20T21:17:56.891000Z"

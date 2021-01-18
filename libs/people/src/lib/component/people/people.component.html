@@ -13,8 +13,8 @@
                     <li>Gender: {{person.gender}}</li>
                     <li>Films:
                         <ul>
-                            <li *ngFor='let film of person.films'>
-                                <div>Open</div>
+                            <li *ngFor='let film of person.films; let i = index'>
+                                <ahref={{film}}>Film{{i+1}}</a>
                             </li>
                         </ul>
                     </li>

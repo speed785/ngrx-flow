@@ -16,5 +16,8 @@ export class SwapiService {
   getPlanets() {
     return this.http.get('https://swapi.dev/api/planets');
   }
+  getFilms() {
+    return this.http.get('https://swapi.dev/api/films');
+  }
 }
 
