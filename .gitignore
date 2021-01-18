@@ -1,2 +1,4 @@
-
+.gitignore
 .idea/aws.xml
+dist/
+node_modules/
