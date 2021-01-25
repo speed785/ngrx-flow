@@ -7,6 +7,9 @@ module.exports = {
     "<rootDir>/libs/shared/services",
     "<rootDir>/libs/planets",
     "<rootDir>/libs/component",
-    "<rootDir>/libs/libs/starships"
+    "<rootDir>/libs/libs/starships",
+    "<rootDir>/libs/films",
+    "<rootDir>/libs/species",
+    "<rootDir>/libs/vehicles",
   ],
 };

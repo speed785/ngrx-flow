@@ -12,3 +12,4 @@ export class AppComponent {
   hello$ = this.http.get<Message>('https://swapi.dev/api/people/1/');
   constructor(private http: HttpClient) {}
 }
+

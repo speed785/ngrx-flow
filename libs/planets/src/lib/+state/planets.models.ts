@@ -1,5 +1,5 @@
 /**
- * Interface for the 'People' data
+ * Interface for the 'Planets' data
  */
 export interface PlanetsEntity {
     id: string; // Primary ID

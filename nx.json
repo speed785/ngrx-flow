@@ -34,9 +34,7 @@
     },
     "nf-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "nf"
-      ]
+      "implicitDependencies": ["nf"]
     },
     "api": {
       "tags": []
@@ -57,6 +55,15 @@
       "tags": []
     },
     "starships": {
+      "tags": []
+    },
+    "films": {
+      "tags": []
+    },
+    "species": {
+      "tags": []
+    },
+    "vehicles": {
       "tags": []
     }
   }

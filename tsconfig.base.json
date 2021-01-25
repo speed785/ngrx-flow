@@ -20,7 +20,10 @@
       "@ngrx-flow/reducers": ["libs/reducers/src/index.ts"],
       "@ngrx-flow/shared/services": ["libs/shared/services/src/index.ts"],
       "@ngrx-flow/planets": ["libs/planets/src/index.ts"],
-      "@ngrx-flow/starships": ["libs/starships/src/index.ts"]
+      "@ngrx-flow/starships": ["libs/starships/src/index.ts"],
+      "@ngrx-flow/films": ["libs/films/src/index.ts"],
+      "@ngrx-flow/species": ["libs/species/src/index.ts"],
+      "@ngrx-flow/vehicles": ["libs/vehicles/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

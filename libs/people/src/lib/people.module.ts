@@ -24,6 +24,7 @@ export const peopleRoutes: Route[] = [
   imports: [
     CommonModule,
     SharedServicesModule,
+    NzSpaceModule,
     NzGridModule,
     NzSkeletonModule,
     RouterModule.forChild(peopleRoutes),

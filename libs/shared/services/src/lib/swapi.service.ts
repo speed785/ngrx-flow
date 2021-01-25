@@ -19,5 +19,14 @@ export class SwapiService {
   getFilms() {
     return this.http.get('https://swapi.dev/api/films');
   }
+  getSpecies() {
+    return this.http.get('https://swapi.dev/api/species');
+  }
+  getVehicles() {
+    return this.http.get('https://swapi.dev/api/vehicles');
+  }
+  getStarships() {
+    return this.http.get('https://swapi.dev/api/starships');
+  }
 }
 

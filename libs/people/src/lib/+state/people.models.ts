@@ -22,10 +22,10 @@ export interface Person {
   gender: string;
   name: string;
   homeworld: string[];
-  filmtest: movie[];
+  filmtest: Movie[];
 }
 
-export interface movie {
+export interface Movie {
 
   id: string | number;
 

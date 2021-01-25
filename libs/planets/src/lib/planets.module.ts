@@ -10,6 +10,7 @@ import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {PlanetsEffects} from "./+state/planets.effects";
 import * as fromPlanets from "./+state/planets.reducer";
+import {NzSpaceModule} from "ng-zorro-antd/space";
 export const planetsRoutes: Route[] = [
   {
     path: "",
@@ -22,6 +23,7 @@ export const planetsRoutes: Route[] = [
     CommonModule,
     NzGridModule,
     NzSkeletonModule,
+    NzSpaceModule,
     RouterModule.forChild(planetsRoutes),
     StoreModule.forFeature(fromPlanets.PLANETS_FEATURE_KEY, fromPlanets.reducer),
     EffectsModule.forFeature([PlanetsEffects]),

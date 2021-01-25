@@ -88,17 +88,12 @@
               "apps/nf/tsconfig.spec.json",
               "apps/nf/tsconfig.editor.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nf/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/nf/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/nf"
-          ],
+          "outputs": ["coverage/apps/nf"],
           "options": {
             "jestConfig": "apps/nf/jest.config.js",
             "passWithNoTests": true
@@ -127,13 +122,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/nf-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/nf-e2e/**/*"
-            ]
+            "tsConfig": ["apps/nf-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/nf-e2e/**/*"]
           }
         }
       }
@@ -146,16 +136,12 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -184,17 +170,12 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -210,13 +191,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/api-interfaces/**/*"
-            ]
+            "tsConfig": ["libs/api-interfaces/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
           }
         }
       }
@@ -235,17 +211,12 @@
               "libs/people/tsconfig.spec.json",
               "libs/people/.storybook/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/people/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/people/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/people"
-          ],
+          "outputs": ["coverage/libs/people"],
           "options": {
             "jestConfig": "libs/people/jest.config.js",
             "passWithNoTests": true
@@ -296,17 +267,12 @@
               "libs/reducers/tsconfig.lib.json",
               "libs/reducers/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/reducers/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/reducers/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/reducers"
-          ],
+          "outputs": ["coverage/libs/reducers"],
           "options": {
             "jestConfig": "libs/reducers/jest.config.js",
             "passWithNoTests": true
@@ -327,17 +293,12 @@
               "libs/shared/services/tsconfig.lib.json",
               "libs/shared/services/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/services/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/services/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/services"
-          ],
+          "outputs": ["coverage/libs/shared/services"],
           "options": {
             "jestConfig": "libs/shared/services/jest.config.js",
             "passWithNoTests": true
@@ -358,17 +319,12 @@
               "libs/planets/tsconfig.lib.json",
               "libs/planets/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/planets/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/planets/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/planets"
-          ],
+          "outputs": ["coverage/libs/planets"],
           "options": {
             "jestConfig": "libs/planets/jest.config.js",
             "passWithNoTests": true
@@ -389,19 +345,92 @@
               "libs/starships/tsconfig.lib.json",
               "libs/starships/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/starships/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/starships/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/starships"
-          ],
+          "outputs": ["coverage/libs/starships"],
           "options": {
             "jestConfig": "libs/starships/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "films": {
+      "projectType": "library",
+      "root": "libs/films",
+      "sourceRoot": "libs/films/src",
+      "prefix": "ngrx-flow",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/films/tsconfig.lib.json",
+              "libs/films/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/films/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/films"],
+          "options": {
+            "jestConfig": "libs/films/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "species": {
+      "projectType": "library",
+      "root": "libs/species",
+      "sourceRoot": "libs/species/src",
+      "prefix": "ngrx-flow",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/species/tsconfig.lib.json",
+              "libs/species/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/species/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/species"],
+          "options": {
+            "jestConfig": "libs/species/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "vehicles": {
+      "projectType": "library",
+      "root": "libs/vehicles",
+      "sourceRoot": "libs/vehicles/src",
+      "prefix": "ngrx-flow",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/vehicles/tsconfig.lib.json",
+              "libs/vehicles/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/vehicles/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/vehicles"],
+          "options": {
+            "jestConfig": "libs/vehicles/jest.config.js",
             "passWithNoTests": true
           }
         }

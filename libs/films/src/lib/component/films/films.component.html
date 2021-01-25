@@ -1,0 +1,27 @@
+<div *ngIf='filmsFacade.loaded$ | async'>
+    <h4 *ngIf='filmsFacade.count$ | async as count'>Count: {{count}}</h4>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }' *ngIf='filmsFacade.allFilms$ | async as films'>
+        <div nz-col class='gutter-row' [nzSpan]='6' *ngFor='let movie of films'>
+            <nz-card [nzTitle]='movie.title'
+                     [nzExtra]='extraTemplate'>
+                <h4>Attributes</h4>
+                <ul>
+                    <li>title: {{movie.title}}</li>
+                    <li>episode_id: {{movie.episode_id}}</li>
+                </ul>
+            </nz-card>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf='filmsFacade.loaded$ | async; else skeleton'>
+</ng-container>
+<ng-template #skeleton>
+    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }'>
+        <nz-card nz-col class='gutter-row' [nzSpan]='6' nzTitle='Loading...'>
+            <nz-skeleton [nzActive]='true'></nz-skeleton>
+        </nz-card>
+    </div>
+</ng-template>
+<ng-template #extraTemplate>
+    <a>More</a>
+</ng-template>
