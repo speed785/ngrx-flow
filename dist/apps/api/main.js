@@ -269,7 +269,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Development/ngrx-flow/apps/api/src/main.ts */"./apps/api/src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\james\Desktop\VSCODE WORKSPACE\Angular\ngrx-flow\apps\api\src\main.ts */"./apps/api/src/main.ts");
 
 
 /***/ }),
