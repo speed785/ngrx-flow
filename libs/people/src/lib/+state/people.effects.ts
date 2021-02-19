@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as PeopleActions from './people.actions';
-import { catchError, delay, flatMap, map } from 'rxjs/operators';
+import {catchError, delay, map, mergeMap} from 'rxjs/operators';
 import { SwapiService } from '@ngrx-flow/shared/services';
 import { of } from 'rxjs';
 import * as uuid from 'uuid';
@@ -11,7 +11,7 @@ export class PeopleEffects {
     init$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PeopleActions.init),
-            flatMap(() => this.swapiService.get()),
+            mergeMap(() => this.swapiService.get()),
             map((peopleResults: PeopleEntity) => {
                 peopleResults.id = uuid.v4();
                 peopleResults.results.map(result => {
