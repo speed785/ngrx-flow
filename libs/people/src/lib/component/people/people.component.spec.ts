@@ -1,18 +1,18 @@
-import { PeopleComponent } from './people.component';
-import { createComponentFactory, Spectator } from '@ngneat/spectator';
-import { PeopleFacade } from '@ngrx-flow/people';
+import { PeopleComponent } from "./people.component";
+import { createComponentFactory, Spectator } from "@ngneat/spectator";
+import { PeopleFacade } from "@ngrx-flow/people";
 
-describe('PeopleComponent', () => {
+describe("PeopleComponent", () => {
   let spectator: Spectator<PeopleComponent>;
   const createComponent = createComponentFactory({
     component: PeopleComponent,
     mocks: [PeopleFacade],
-    shallow: true
-  })
+    shallow: true,
+  });
 
-  beforeEach(() => spectator = createComponent())
+  beforeEach(() => (spectator = createComponent()));
 
-  it('exists', () => {
+  it("exists", () => {
     expect(spectator.component).toBeDefined();
   });
 });

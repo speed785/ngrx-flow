@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 // {
 //     "count": 36,
 //     "next": "http://swapi.dev/api/starships/?page=2",

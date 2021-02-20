@@ -1,12 +1,32 @@
+/**
+ * Interface for the 'Vehicles' data
+ */
+export interface SpeciesEntity {
+  id: string; // Primary ID
+  count: number;
+  next: string;
+  previous: string;
+  results: Aliens[];
+}
 
-
-
-
-
-
-
-
-
+export interface Aliens {
+  id: string | number;
+  name: string;
+  classification: string;
+  designation: string;
+  average_height: string;
+  skin_colors: string;
+  hair_colors: string;
+  eye_colors: string;
+  average_lifespan: string;
+  homeworld: [];
+  language: string;
+  people: [];
+  films: [];
+  created: string;
+  edited: string;
+  url: [];
+}
 
 // {
 //     "count": 37,

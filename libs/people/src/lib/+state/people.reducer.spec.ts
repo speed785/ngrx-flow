@@ -1,9 +1,9 @@
-import { PeopleEntity } from './people.models';
-import * as PeopleActions from './people.actions';
-import { State, initialState, reducer } from './people.reducer';
+import { PeopleEntity } from "./people.models";
+import * as PeopleActions from "./people.actions";
+import { State, initialState, reducer } from "./people.reducer";
 
-describe('People Reducer', () => {
-  const createPeopleEntity = (id: string, name = '') =>
+describe("People Reducer", () => {
+  const createPeopleEntity = (id: string, name = "") =>
     ({
       id,
       name: name || `name-${id}`,
@@ -11,11 +11,11 @@ describe('People Reducer', () => {
 
   beforeEach(() => {});
 
-  describe('valid People actions', () => {
-    it('loadPeopleSuccess should return set the list of known People', () => {
+  describe("valid People actions", () => {
+    it("loadPeopleSuccess should return set the list of known People", () => {
       const people = [
-        createPeopleEntity('PRODUCT-AAA'),
-        createPeopleEntity('PRODUCT-zzz'),
+        createPeopleEntity("PRODUCT-AAA"),
+        createPeopleEntity("PRODUCT-zzz"),
       ];
       const action = PeopleActions.loadPeopleSuccess({ people });
 
@@ -26,8 +26,8 @@ describe('People Reducer', () => {
     });
   });
 
-  describe('unknown action', () => {
-    it('should return the previous state', () => {
+  describe("unknown action", () => {
+    it("should return the previous state", () => {
       const action = {} as any;
 
       const result = reducer(initialState, action);

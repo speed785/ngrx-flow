@@ -1,10 +1,10 @@
-import * as fromFilms from './films.reducer';
-import { selectFilmsState } from './films.selectors';
+import * as fromFilms from "./films.reducer";
+import { selectFilmsState } from "./films.selectors";
 
-describe('Films Selectors', () => {
-  it('should select the feature state', () => {
+describe("Films Selectors", () => {
+  it("should select the feature state", () => {
     const result = selectFilmsState({
-      [fromFilms.filmsFeatureKey]: {}
+      [fromFilms.filmsFeatureKey]: {},
     });
 
     expect(result).toEqual({});

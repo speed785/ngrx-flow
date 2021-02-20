@@ -1,10 +1,10 @@
-import * as fromVehicles from './vehicles.reducer';
-import { selectVehiclesState } from './vehicles.selectors';
+import * as fromVehicles from "./vehicles.reducer";
+import { selectVehiclesState } from "./vehicles.selectors";
 
-describe('Vehicles Selectors', () => {
-  it('should select the feature state', () => {
+describe("Vehicles Selectors", () => {
+  it("should select the feature state", () => {
     const result = selectVehiclesState({
-      [fromVehicles.vehiclesFeatureKey]: {}
+      [fromVehicles.vehiclesFeatureKey]: {},
     });
 
     expect(result).toEqual({});

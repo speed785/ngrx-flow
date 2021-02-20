@@ -1,10 +1,10 @@
-import * as fromStarships from './starships.reducer';
-import { selectStarshipsState } from './starships.selectors';
+import * as fromStarships from "./starships.reducer";
+import { selectStarshipsState } from "./starships.selectors";
 
-describe('Starships Selectors', () => {
-  it('should select the feature state', () => {
+describe("Starships Selectors", () => {
+  it("should select the feature state", () => {
     const result = selectStarshipsState({
-      [fromStarships.starshipsFeatureKey]: {}
+      [fromStarships.starshipsFeatureKey]: {},
     });
 
     expect(result).toEqual({});

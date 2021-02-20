@@ -1,1 +1,71 @@
-<p>species works!</p>
+<div *ngIf="speciesFacade.loaded$ | async">
+  <h4 *ngIf="speciesFacade.count$ | async as count">Count: {{ count }}</h4>
+  <div
+    nz-row
+    [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }"
+    *ngIf="speciesFacade.allSpecies$ | async as species"
+  >
+    <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let aliens of species">
+      <nz-card [nzTitle]="aliens.name" [nzExtra]="extraTemplate">
+        <h4>Attributes</h4>
+        <ul>
+          <li>Name: {{ aliens.name }}</li>
+          <li>Classification: {{ aliens.classification }}</li>
+          <li>Designation: {{ aliens.designation }}</li>
+          <li>Average Height: {{ aliens.average_height }}</li>
+          <li>Skin Colors: {{ aliens.skin_colors }}</li>
+          <li>Hair Colors: {{ aliens.hair_colors }}</li>
+          <li>Eye Colors: {{ aliens.eye_colors }}</li>
+          <li>Average Lifespan: {{ aliens.average_lifespan }}</li>
+          <li>
+            Homeworld:
+            <ul>
+              <li *ngFor="let film of aliens.homeworld; let i = index">
+                <a href="{{ homeworld }}">Homeworld{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>language: {{ aliens.language }}</li>
+          <li>
+            People:
+            <ul>
+              <li *ngFor="let film of aliens.people; let i = index">
+                <a href="{{ people }}">People{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Films:
+            <ul>
+              <li *ngFor="let film of aliens.films; let i = index">
+                <a href="{{ films }}">Films{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>Created: {{ aliens.created }}</li>
+          <li>Edited: {{ aliens.edited }}</li>
+          <li>
+            URL:
+            <ul>
+              <li *ngFor="let film of aliens.url; let i = index">
+                <a href="{{ url }}">URL{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nz-card>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="speciesFacade.loaded$ | async; else skeleton">
+</ng-container>
+<ng-template #skeleton>
+  <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <nz-card nz-col class="gutter-row" [nzSpan]="6" nzTitle="Loading...">
+      <nz-skeleton [nzActive]="true"></nz-skeleton>
+    </nz-card>
+  </div>
+</ng-template>
+<ng-template #extraTemplate>
+  <a>More</a>
+</ng-template>

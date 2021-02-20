@@ -1,41 +1,39 @@
-import { Store, StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from "@ngrx/store";
 
-import { PeopleEntity } from './people.models';
-import { PeopleFacade } from './people.facade';
-import { State } from './people.reducer';
-import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
+import { PeopleEntity } from "./people.models";
+import { PeopleFacade } from "./people.facade";
+import { State } from "./people.reducer";
+import { createServiceFactory, SpectatorService } from "@ngneat/spectator";
 
 // interface TestSchema {
 //   people: State;
 // }
 
-describe('PeopleFacade', () => {
+describe("PeopleFacade", () => {
   let facade: SpectatorService<PeopleFacade>;
   // let store: Store<TestSchema>;
   const createService = createServiceFactory({
     service: PeopleFacade,
-    imports: [
-      StoreModule.forRoot([])
-    ]
+    imports: [StoreModule.forRoot([])],
   });
   const createPeopleEntity = (
-      id: string,
-      count = 0,
-      previous = '',
-      next = '',
-      results = []
+    id: string,
+    count = 0,
+    previous = "",
+    next = "",
+    results = []
   ) =>
-      ({
-        id,
-        count,
-        previous,
-        next,
-        results
-      } as PeopleEntity);
+    ({
+      id,
+      count,
+      previous,
+      next,
+      results,
+    } as PeopleEntity);
 
-  beforeEach(() => facade = createService())
+  beforeEach(() => (facade = createService()));
 
-  it('exists', () => {
+  it("exists", () => {
     expect(facade.service).toBeDefined();
-  })
+  });
 });

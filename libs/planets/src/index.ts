@@ -1,1 +1,1 @@
-export * from './lib/planets.module';
+export * from "./lib/planets.module";

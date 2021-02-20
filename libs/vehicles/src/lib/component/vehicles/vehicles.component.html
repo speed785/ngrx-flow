@@ -1,59 +1,65 @@
-<div *ngIf='vehiclesFacade.loaded$ | async'>
-    <h4 *ngIf='vehiclesFacade.count$ | async as count'>Count: {{count}}</h4>
-    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }' *ngIf='vehiclesFacade.allVehicles$ | async as vehicles'>
-        <div nz-col class='gutter-row' [nzSpan]='6' *ngFor='let jalopy of vehicles'>
-            <nz-card [nzTitle]='jalopy.name'
-                     [nzExtra]='extraTemplate'>
-                <h4>Attributes</h4>
-                <ul>
-                    <li>Name: {{jalopy.name}}</li>
-                    <li>Model: {{jalopy.model}}</li>
-                    <li>Manufacturer: {{jalopy.manufacturer}}</li>
-                    <li>Cost in Credits: {{jalopy.cost_in_credits}}</li>
-                    <li>Length: {{jalopy.length}}</li>
-                    <li>Max Atmosphering Speed: {{jalopy.max_atmosphering_speed}}</li>
-                    <li>Crew: {{jalopy.crew}}</li>
-                    <li>Passengers: {{jalopy.passengers}}</li>
-                    <li>Cargo Capacity: {{jalopy.cargo_capacity}}</li>
-                    <li>Consumables: {{jalopy.consumables}}</li>
-                    <li>Vehicle Class: {{jalopy.vehicle_class}}</li>
-                    <li>Pilots:
-                        <ul>
-                            <li *ngFor='let film of jalopy.pilots; let i = index'>
-                                <a href={{[pilots]}}>Pilots{{i+1}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Films:
-                        <ul>
-                            <li *ngFor='let film of jalopy.films; let i = index'>
-                                <a href={{[films]}}>Pilots{{i+1}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Created: {{jalopy.created}}</li>
-                    <li>Edited: {{jalopy.edited}}</li>
-                    <li>URL:
-                        <ul>
-                            <li *ngFor='let film of jalopy.url; let i = index'>
-                                <a href={{[url]}}>Pilots{{i+1}}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nz-card>
-        </div>
+<div *ngIf="vehiclesFacade.loaded$ | async">
+  <h4 *ngIf="vehiclesFacade.count$ | async as count">Count: {{ count }}</h4>
+  <div
+    nz-row
+    [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }"
+    *ngIf="vehiclesFacade.allVehicles$ | async as vehicles"
+  >
+    <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let jalopy of vehicles">
+      <nz-card [nzTitle]="jalopy.name" [nzExtra]="extraTemplate">
+        <h4>Attributes</h4>
+        <ul>
+          <li>Name: {{ jalopy.name }}</li>
+          <li>Model: {{ jalopy.model }}</li>
+          <li>Manufacturer: {{ jalopy.manufacturer }}</li>
+          <li>Cost in Credits: {{ jalopy.cost_in_credits }}</li>
+          <li>Length: {{ jalopy.length }}</li>
+          <li>Max Atmosphering Speed: {{ jalopy.max_atmosphering_speed }}</li>
+          <li>Crew: {{ jalopy.crew }}</li>
+          <li>Passengers: {{ jalopy.passengers }}</li>
+          <li>Cargo Capacity: {{ jalopy.cargo_capacity }}</li>
+          <li>Consumables: {{ jalopy.consumables }}</li>
+          <li>Vehicle Class: {{ jalopy.vehicle_class }}</li>
+          <li>
+            Pilots:
+            <ul>
+              <li *ngFor="let film of jalopy.pilots; let i = index">
+                <a href="{{ pilots }}">Pilots{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Films:
+            <ul>
+              <li *ngFor="let film of jalopy.films; let i = index">
+                <a href="{{ films }}">Films{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+          <li>Created: {{ jalopy.created }}</li>
+          <li>Edited: {{ jalopy.edited }}</li>
+          <li>
+            URL:
+            <ul>
+              <li *ngFor="let film of jalopy.url; let i = index">
+                <a href="{{ url }}">URL{{ i + 1 }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nz-card>
     </div>
+  </div>
 </div>
-<ng-container *ngIf='vehiclesFacade.loaded$ | async; else skeleton'>
+<ng-container *ngIf="vehiclesFacade.loaded$ | async; else skeleton">
 </ng-container>
 <ng-template #skeleton>
-    <div nz-row [nzGutter]='{ xs: 8, sm: 16, md: 24, lg: 32 }'>
-        <nz-card nz-col class='gutter-row' [nzSpan]='6' nzTitle='Loading...'>
-            <nz-skeleton [nzActive]='true'></nz-skeleton>
-        </nz-card>
-    </div>
+  <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <nz-card nz-col class="gutter-row" [nzSpan]="6" nzTitle="Loading...">
+      <nz-skeleton [nzActive]="true"></nz-skeleton>
+    </nz-card>
+  </div>
 </ng-template>
 <ng-template #extraTemplate>
-    <a>More</a>
+  <a>More</a>
 </ng-template>

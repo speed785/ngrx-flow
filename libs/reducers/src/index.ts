@@ -1,1 +1,1 @@
-export * from './lib/reducers.module';
+export * from "./lib/reducers.module";

@@ -26,11 +26,9 @@ export interface Person {
 }
 
 export interface Movie {
-
   id: string | number;
 
   title: string;
-
 }
 // birth_year: "19BBY"
 // created: "2014-12-09T13:50:51.644000Z"

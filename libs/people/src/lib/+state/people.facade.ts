@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import * as PeopleActions from './people.actions';
-import * as PeopleSelectors from './people.selectors';
+import { Injectable } from "@angular/core";
+import { select, Store } from "@ngrx/store";
+import * as PeopleActions from "./people.actions";
+import * as PeopleSelectors from "./people.selectors";
 @Injectable()
 export class PeopleFacade {
   /**

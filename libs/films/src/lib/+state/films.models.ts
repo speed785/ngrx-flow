@@ -11,20 +11,20 @@ export interface FilmsEntity {
 
 export interface Movie {
   id: string | number;
-    title: string;
-    episode_id: string;
-    opening_crawl: string;
-    director: string;
-    producer: string;
-    release_date: string;
-    characters: string[];
-    planets: string[];
-    starships: string[];
-    vehicles: string[];
-    species: string[];
-    created: string;
-    edited: string;
-    url: string;
+  title: string;
+  episode_id: string;
+  opening_crawl: string;
+  director: string;
+  producer: string;
+  release_date: string;
+  characters: string[];
+  planets: string[];
+  starships: string[];
+  vehicles: string[];
+  species: string[];
+  created: string;
+  edited: string;
+  url: string;
 }
 
 //      {

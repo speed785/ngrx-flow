@@ -1,8 +1,8 @@
-import { reducer, initialState } from './films.reducer';
+import { reducer, initialState } from "./films.reducer";
 
-describe('Films Reducer', () => {
-  describe('an unknown action', () => {
-    it('should return the previous state', () => {
+describe("Films Reducer", () => {
+  describe("an unknown action", () => {
+    it("should return the previous state", () => {
       const action = {} as any;
 
       const result = reducer(initialState, action);

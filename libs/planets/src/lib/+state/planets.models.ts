@@ -2,29 +2,26 @@
  * Interface for the 'Planets' data
  */
 export interface PlanetsEntity {
-    id: string; // Primary ID
-    count: number;
-    next: string;
-    previous: string;
-    results: Worlds[];
+  id: string; // Primary ID
+  count: number;
+  next: string;
+  previous: string;
+  results: Worlds[];
 }
 
 export interface Worlds {
-    id: string | number;
-    name: string;
-    rotation_period: string;
-    orbital_period: string;
-    diameter: string;
-    climate: string;
-    gravity: string;
-    terrain: string;
-    surface_water: string;
-    population: string;
-    residents: string[];
+  id: string | number;
+  name: string;
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+  residents: string[];
 }
-
-
-
 
 // {
 //     "name": "Tatooine",
