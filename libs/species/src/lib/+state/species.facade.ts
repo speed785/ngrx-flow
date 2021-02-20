@@ -1,5 +1,5 @@
-import { select, Store } from "@ngrx/store";
 import { Injectable } from "@angular/core";
+import { select, Store } from "@ngrx/store";
 import * as SpeciesActions from "./species.actions";
 import * as SpeciesSelectors from "./species.selectors";
 

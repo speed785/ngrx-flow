@@ -8,7 +8,7 @@ import { Message } from "@ngrx-flow/api-interfaces";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  isCollapsed = false;
+  isCollapsed = true;
   hello$ = this.http.get<Message>("https://swapi.dev/api/people/1/");
   constructor(private http: HttpClient) {}
 }

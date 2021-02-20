@@ -19,13 +19,13 @@ export interface Aliens {
   hair_colors: string;
   eye_colors: string;
   average_lifespan: string;
-  homeworld: [];
+  homeworld: string[];
   language: string;
-  people: [];
-  films: [];
+  people: string[];
+  films: string[];
   created: string;
   edited: string;
-  url: [];
+  url: string[];
 }
 
 // {

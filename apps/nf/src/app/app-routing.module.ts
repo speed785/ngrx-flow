@@ -23,14 +23,14 @@ export const routes: Routes = [
       import("@ngrx-flow/films").then((mod) => mod.FilmsModule),
   },
   {
-    path: "vehicles",
-    loadChildren: () =>
-      import("@ngrx-flow/vehicles").then((mod) => mod.VehiclesModule),
-  },
-  {
     path: "species",
     loadChildren: () =>
       import("@ngrx-flow/species").then((mod) => mod.SpeciesModule),
+  },
+  {
+    path: "vehicles",
+    loadChildren: () =>
+      import("@ngrx-flow/vehicles").then((mod) => mod.VehiclesModule),
   },
   {
     path: "starships",

@@ -18,7 +18,9 @@ export class PlanetsEffects {
           result.id = uuid.v4();
           return result;
         });
-        return PlanetsActions.loadPlanetsSuccess({ planets: planetsResults });
+        return PlanetsActions.loadPlanetsSuccess({
+            planets: planetsResults
+        });
       }),
       delay(1000),
       catchError((err) =>

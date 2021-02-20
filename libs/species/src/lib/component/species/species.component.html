@@ -17,19 +17,12 @@
           <li>Hair Colors: {{ aliens.hair_colors }}</li>
           <li>Eye Colors: {{ aliens.eye_colors }}</li>
           <li>Average Lifespan: {{ aliens.average_lifespan }}</li>
-          <li>
-            Homeworld:
-            <ul>
-              <li *ngFor="let film of aliens.homeworld; let i = index">
-                <a href="{{ homeworld }}">Homeworld{{ i + 1 }}</a>
-              </li>
-            </ul>
-          </li>
+          <li>Homeworld: {{ aliens.homeworld }}</li>
           <li>language: {{ aliens.language }}</li>
           <li>
             People:
             <ul>
-              <li *ngFor="let film of aliens.people; let i = index">
+              <li *ngFor="let people of aliens.people; let i = index">
                 <a href="{{ people }}">People{{ i + 1 }}</a>
               </li>
             </ul>
@@ -37,21 +30,14 @@
           <li>
             Films:
             <ul>
-              <li *ngFor="let film of aliens.films; let i = index">
+              <li *ngFor="let films of aliens.films; let i = index">
                 <a href="{{ films }}">Films{{ i + 1 }}</a>
               </li>
             </ul>
           </li>
           <li>Created: {{ aliens.created }}</li>
           <li>Edited: {{ aliens.edited }}</li>
-          <li>
-            URL:
-            <ul>
-              <li *ngFor="let film of aliens.url; let i = index">
-                <a href="{{ url }}">URL{{ i + 1 }}</a>
-              </li>
-            </ul>
-          </li>
+          <li>URL: {{ aliens.url }}</li>
         </ul>
       </nz-card>
     </div>

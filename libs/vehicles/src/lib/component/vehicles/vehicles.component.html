@@ -23,7 +23,7 @@
           <li>
             Pilots:
             <ul>
-              <li *ngFor="let film of jalopy.pilots; let i = index">
+              <li *ngFor="let pilots of jalopy.pilots; let i = index">
                 <a href="{{ pilots }}">Pilots{{ i + 1 }}</a>
               </li>
             </ul>
@@ -31,21 +31,14 @@
           <li>
             Films:
             <ul>
-              <li *ngFor="let film of jalopy.films; let i = index">
+              <li *ngFor="let films of jalopy.films; let i = index">
                 <a href="{{ films }}">Films{{ i + 1 }}</a>
               </li>
             </ul>
           </li>
           <li>Created: {{ jalopy.created }}</li>
           <li>Edited: {{ jalopy.edited }}</li>
-          <li>
-            URL:
-            <ul>
-              <li *ngFor="let film of jalopy.url; let i = index">
-                <a href="{{ url }}">URL{{ i + 1 }}</a>
-              </li>
-            </ul>
-          </li>
+          <li>URL: {{ jalopy.url }}</li>
         </ul>
       </nz-card>
     </div>
