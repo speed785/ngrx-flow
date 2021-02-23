@@ -1,3 +1,44 @@
+/**
+ * Interface for the 'Starships' data
+ */
+export interface StarshipsEntity {
+    id: string; // Primary ID
+    count: number;
+    next: string;
+    previous: string;
+    results: Spaceships[];
+}
+
+export interface Spaceships {
+    id: string | number;
+    name: string;
+    model: string;
+    manufacturer: string;
+    cost_in_credits: string;
+    length: string;
+    max_atmosphering_speed: string;
+    crew: string;
+    passengers: string;
+    cargo_capacity: string;
+    consumables: string;
+    hyperdrive_rating: string;
+    MGLT: string;
+    starship_class: string;
+    pilots: [];
+    films: [];
+    created: string;
+    edited: string;
+    url: [];
+}
+
+
+
+
+
+
+
+
+
 // {
 //     "count": 36,
 //     "next": "http://swapi.dev/api/starships/?page=2",

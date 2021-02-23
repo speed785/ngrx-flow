@@ -1,1 +1,60 @@
-<p>starships works!</p>
+<div *ngIf="starshipsFacade.loaded$ | async">
+    <h4 *ngIf="starshipsFacade.count$ | async as count">Count: {{ count }}</h4>
+    <div
+            nz-row
+            [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }"
+            *ngIf="starshipsFacade.allStarships$ | async as starships"
+    >
+        <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let spaceships of starships">
+            <nz-card [nzTitle]="spaceships.name" [nzExtra]="extraTemplate">
+                <h4>Attributes</h4>
+                <ul>
+                    <li>Name: {{ spaceships.name }}</li>
+                    <li>Model: {{ spaceships.model }}</li>
+                    <li>Manufacturer: {{ spaceships.manufacturer }}</li>
+                    <li>Cost in Credits: {{ spaceships.cost_in_credits }}</li>
+                    <li>Length: {{ spaceships.length }}</li>
+                    <li>Max Atmosphering Speed: {{ spaceships.max_atmosphering_speed }}</li>
+                    <li>Crew: {{ spaceships.crew }}</li>
+                    <li>Passengers: {{ spaceships.passengers }}</li>
+                    <li>Cargo Capacity: {{ spaceships.cargo_capacity }}</li>
+                    <li>Consumables: {{ spaceships.consumables }}</li>
+                    <li>Hyperdrive Rating: {{ spaceships.hyperdrive_rating }}</li>
+                    <li>MGLT: {{ spaceships.MGLT }}</li>
+                    <li>Starship Class: {{ spaceships.starship_class }}</li>
+                    <li>
+                        Pilots:
+                        <ul>
+                            <li *ngFor="let pilots of spaceships.pilots; let i = index">
+                                <a href="{{ pilots }}">Pilots{{ i + 1 }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Films:
+                        <ul>
+                            <li *ngFor="let films of spaceships.films; let i = index">
+                                <a href="{{ films }}">Films{{ i + 1 }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Created: {{ spaceships.created }}</li>
+                    <li>Edited: {{ spaceships.edited }}</li>
+                    <li>URL: {{ spaceships.url }}</li>
+                </ul>
+            </nz-card>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="starshipsFacade.loaded$ | async; else skeleton">
+</ng-container>
+<ng-template #skeleton>
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+        <nz-card nz-col class="gutter-row" [nzSpan]="6" nzTitle="Loading...">
+            <nz-skeleton [nzActive]="true"></nz-skeleton>
+        </nz-card>
+    </div>
+</ng-template>
+<ng-template #extraTemplate>
+    <a>More</a>
+</ng-template>

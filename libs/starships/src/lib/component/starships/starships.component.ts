@@ -1,13 +1,16 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { StarshipsFacade } from "../../+state/starships.facade";
 
 @Component({
   selector: "ngrx-flow-starships",
   templateUrl: "./starships.component.html",
   styleUrls: ["./starships.component.scss"],
-  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StarshipsComponent implements OnInit {
-  constructor() {}
+  constructor(public starshipsFacade: StarshipsFacade) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.starshipsFacade.init();
+  }
 }
