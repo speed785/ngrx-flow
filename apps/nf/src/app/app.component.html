@@ -1,15 +1,33 @@
 <nz-layout>
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-    <div class="logo"></div>
+      <img  class="logo" src="./assets/Star_Wars_logo-1.png">
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-submenu nzTitle="Star Wars" nzIcon="user">
         <ul>
-          <li nz-menu-item [routerLink]="['people']">Characters</li>
-          <li nz-menu-item [routerLink]="['planets']">Planets</li>
-          <li nz-menu-item [routerLink]="['films']">Films</li>
-          <li nz-menu-item [routerLink]="['species']">Species</li>
-          <li nz-menu-item [routerLink]="['vehicles']">Vehicles</li>
-          <li nz-menu-item [routerLink]="['starships']">Starships</li>
+          <li nz-menu-item [routerLink]="['people']">
+            <i nz-icon nzType="user"></i>
+            <span>Characters</span>
+          </li>
+          <li nz-menu-item [routerLink]="['planets']">
+            <i nz-icon nzType="global"></i>
+            <span>Planets</span>
+          </li>
+          <li nz-menu-item [routerLink]="['films']">
+            <i nz-icon nzType="play-square"></i>
+            <span>Films</span>
+          </li>
+          <li nz-menu-item [routerLink]="['species']">
+            <i nz-icon nzType="robot"></i>
+            <span>Species</span>
+          </li>
+          <li nz-menu-item [routerLink]="['vehicles']">
+            <i nz-icon nzType="car"></i>
+            <span>Vehicles</span>
+          </li>
+          <li nz-menu-item [routerLink]="['starships']">
+            <i nz-icon nzType="rocket"></i>
+            <span>Starships</span>
+          </li>
         </ul>
       </li>
     </ul>
